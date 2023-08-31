@@ -74,6 +74,35 @@
     transition: all .15s cubic-bezier(.4, 0, .2, 1);
 }
 
+.root .img {
+    height: auto;
+    border-radius: .25rem;
+    border: 2px solid rgba(226, 232, 240, .1);
+    transition: all .15s cubic-bezier(.4, 0, .2, 1);
+}
+
+.root:hover .img {
+    height: auto;
+    border-radius: .25rem;
+    border: 2px solid rgba(226, 232, 240, .3);
+    transition: all .15s cubic-bezier(.4, 0, .2, 1);
+}
+
+.root .leftTopArrow {
+    height: 16px;
+    width: 16px;
+    transform: translateY(5px) translateX(0px);
+    transition: all .15s cubic-bezier(.4, 0, .2, 1);
+}
+
+.root:hover .leftTopArrow {
+    height: 16px;
+    width: 16px;
+    transform: translateY(0px) translateX(5px);
+    transition: all .15s cubic-bezier(.4, 0, .2, 1);
+}
+
+
 .Container .tags .tag {
     background-color: rgba(45, 212, 191, .1);
     color: #5EE4D4;

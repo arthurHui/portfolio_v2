@@ -1,10 +1,11 @@
+import Image from 'next/image'
 import React, { useMemo } from "react";
-import s from "./ExperienceCard.module.css";
+import s from "./ProjectCard.module.css";
 import { LeftTopArrow } from '@/components/icon'
 
-const ExperienceCard = ({
+const ProjectCard = ({
     index,
-    dateRange,
+    image,
     title,
     otherTitle = [],
     description,
@@ -34,7 +35,14 @@ const ExperienceCard = ({
             <div className={isHoverFilter ? s.hoverFilter : ''} />
             <div>
                 <div className={s.Container}>
-                    <div className={s.dateRange}>{dateRange}</div>
+                    <Image
+                        src={image}
+                        alt={title}
+                        sizes="100vw"
+                        width={120}
+                        height={0}
+                        className={s.img}
+                    />
                     <div>
                         <div
                             className={s.title}
@@ -65,4 +73,4 @@ const ExperienceCard = ({
     )
 }
 
-export default ExperienceCard
+export default ProjectCard
