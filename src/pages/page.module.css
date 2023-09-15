@@ -93,6 +93,26 @@
   transition: width .15s cubic-bezier(.4, 0, .2, 1);
 }
 
+.scrolledSectionItem{
+  color: #E2E8F0;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+  color: #64748B;
+  padding: .75rem 0;
+  width: fit-content;
+}
+
+.scrolledSectionItem .line {
+  height: 1px;
+  width: 4rem;
+  background: #E2E8F0;
+  margin-right: 1rem;
+  transition: width .15s cubic-bezier(.4, 0, .2, 1);
+}
+
 .section {
   scroll-margin-top: 6rem;
   margin-bottom: 9rem;
@@ -102,15 +122,22 @@
   font-size: 14px;
 }
 
-.specialText{
-  
+.specialText {}
+
+.mouseAnimation {
+  position: fixed;
+  transition-duration: .3s;
+  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+  z-index: 30;
+  inset: 0;
+  pointer-events: none;
 }
 
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
   .card:hover {
     background: rgba(var(--card-rgb), 0.1);
-    border: 1px solid  rgba(var(--card-border-rgb), 0.15);
+    border: 1px solid rgba(var(--card-border-rgb), 0.15);
   }
 
   .card:hover span {

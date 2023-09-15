@@ -11,7 +11,8 @@ const ProjectCard = ({
     description,
     tags,
     detectOnHover,
-    hoverIndex
+    hoverIndex,
+    href
 }) => {
 
     const isHoverFilter = useMemo(() => {
@@ -29,7 +30,7 @@ const ProjectCard = ({
             onFocus={() => detectOnHover(index)}
             onMouseLeave={() => detectOnHover(-1)}
             onBlur={() => detectOnHover(-1)}
-            href="https://shopage.org/"
+            href={href}
             target="_blank"
         >
             <div className={isHoverFilter ? s.hoverFilter : ''} />

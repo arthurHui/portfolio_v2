@@ -1,12 +1,47 @@
+"use client"
 import s from './page.module.css'
 import { GithubIcon, LinkInIcon } from '@/components/icon'
 import Experience from "@/components/experience/Experience"
 import Project from '@/components/projects/Project'
+import { useEffect, useRef, useState } from 'react'
 
 export default function Home() {
 
+    const [mouse, setMouse] = useState({ x: 0, y: 0 })
+    const [scrollSection, setScrollSection] = useState("about");
+
+    useEffect(() => {
+
+        const handleScroll = () => {
+            const position = window.scrollY;
+            if (position === 0) {
+                setScrollSection("about")
+            } else if (position >= 529 && position < 630) {
+                setScrollSection("experience")
+            } else if (position >= 630) {
+                setScrollSection("projects")
+            }
+        };
+
+        const handleMousemove = (event) => {
+            setMouse({
+                x: event.clientX,
+                y: event.clientY
+            })
+        };
+
+        addEventListener("mousemove", handleMousemove);
+        addEventListener('scroll', handleScroll, { passive: true });
+
+        return () => {
+            removeEventListener("mousemove", handleMousemove)
+            removeEventListener('scroll', handleScroll);
+        }
+    }, [])
+
     return (
         <main className={s.main}>
+            <div className={s.mouseAnimation} style={{ background: `radial-gradient(600px at ${mouse.x}px ${mouse.y}px, rgba(29, 78, 216, 0.15), transparent 80%)` }} />
             <div className={s.stickyRow} >
                 <div>
                     <h1 className={s.title}>Arthur Hui</h1>
@@ -14,21 +49,21 @@ export default function Home() {
                     <h4 className={s.shortDescription}>I build accessible, inclusive products and digital experiences for the web.</h4>
                     <div className={s.sectionList}>
                         <a
-                            className={s.sectionItem}
+                            className={scrollSection === "about" ? s.scrolledSectionItem : s.sectionItem}
                             href='#about'
                         >
                             <div className={s.line} />
                             <div>ABOUT</div>
                         </a>
                         <a
-                            className={s.sectionItem}
+                            className={scrollSection === "experience" ? s.scrolledSectionItem : s.sectionItem}
                             href='#experience'
                         >
                             <div className={s.line} />
                             <div>EXPERIENCE</div>
                         </a>
                         <a
-                            className={s.sectionItem}
+                            className={scrollSection === "projects" ? s.scrolledSectionItem : s.sectionItem}
                             href='#projects'
                         >
                             <div className={s.line} />
@@ -48,13 +83,13 @@ export default function Home() {
             <div className={s.row}>
                 <section id='about' className={s.section}>
                     <div className={s.description}>
-                        Back in 2012, I decided to try my hand at creating custom Tumblr themes and tumbled head first into the rabbit hole of coding and web development. Fast-forward to today, and I’ve had the privilege of building software for an advertising agency, a start-up, a student-led design studio, and a huge corporation.
+                        Hello and welcome to my portfolio website! I am Arthur, and I am a passionate.
                     </div>
                     <div className={s.description}>
-                        My main focus these days is building products and leading projects for our clients at Upstatement. In my free time I've also released an online video course that covers everything you need to know to build a web app with the Spotify API.
+                        Throughout my journey as a developer, I have acquired a deep understanding of both front-end and back-end development, allowing me to create seamless and robust solutions. I thoroughly enjoy the process of transforming ideas into functional and visually appealing websites, and I constantly strive to stay up-to-date with the latest trends and technologies in the industry.
                     </div>
                     <div className={s.description}>
-                        When I’m not at the computer, I’m usually rock climbing, hanging out with my wife and two cats, or running around Hyrule searching for Korok seeds.
+                        I am excited to showcase my projects and share my passion for web development through this portfolio website. Feel free to explore my work and get in touch with me for any inquiries or collaboration opportunities. Thank you for visiting, and I look forward to connecting with you soon!
                     </div>
                 </section>
                 <section id='experience' className={s.section}>

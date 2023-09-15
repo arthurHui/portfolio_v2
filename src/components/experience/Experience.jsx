@@ -9,8 +9,9 @@ const Experience = () => {
     const data = [{
         dateRange: "2022 - PRESENT",
         title: "Web Developer · Shopage",
-        description: "Deliver high-quality, robust production code for a diverse array of projects for clients including Harvard Business School, Everytown for Gun Safety, Pratt Institute, Koala Health, Vanderbilt University, The 19th News, and more. Provide leadership within engineering department through close collaboration, knowledge shares, and mentorship.",
-        tags: ['React', 'SCSS', 'Javascript', 'Python', 'Django']
+        description: "During my tenure as a full stack developer at Shopage, I had the opportunity to work on an exciting e-commerce platform that provided comprehensive services for individuals looking to establish their online shops. My primary responsibilities included bug fixing and implementing new features using React and Django.",
+        tags: ['React', 'SCSS', 'Javascript', 'Python', 'Django'],
+        href: "https://shopage.org/"
     }]
 
     const detectOnHover = (index) => {
@@ -31,6 +32,7 @@ const Experience = () => {
                         tags={value.tags}
                         detectOnHover={(index) => detectOnHover(index)}
                         hoverIndex={hoverIndex}
+                        href={value.href}
                     />
                 )
             })}
