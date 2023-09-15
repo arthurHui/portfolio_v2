@@ -11,14 +11,17 @@ const ExperienceCard = ({
     tags,
     detectOnHover,
     hoverIndex,
-    href
+    href,
+    isEnabledHover
 }) => {
 
     const isHoverFilter = useMemo(() => {
+        if (!isEnabledHover) return false
         return hoverIndex !== -1 && hoverIndex === index
     }, [index, hoverIndex])
 
     const isOtherFilter = useMemo(() => {
+        if (!isEnabledHover) return false
         return hoverIndex !== -1 && hoverIndex !== index
     }, [index, hoverIndex])
 

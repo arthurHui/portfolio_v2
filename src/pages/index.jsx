@@ -3,12 +3,15 @@ import s from './page.module.css'
 import { GithubIcon, LinkInIcon } from '@/components/icon'
 import Experience from "@/components/experience/Experience"
 import Project from '@/components/projects/Project'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
+import useWindowSize from "@/utilities/useWindowSize"
 
 export default function Home() {
 
     const [mouse, setMouse] = useState({ x: 0, y: 0 })
     const [scrollSection, setScrollSection] = useState("about");
+
+    const { width } = useWindowSize()
 
     useEffect(() => {
 
@@ -16,9 +19,9 @@ export default function Home() {
             const position = window.scrollY;
             if (position === 0) {
                 setScrollSection("about")
-            } else if (position >= 529 && position < 630) {
+            } else if (position >= 529 && position < 600) {
                 setScrollSection("experience")
-            } else if (position >= 630) {
+            } else if (position >= 600) {
                 setScrollSection("projects")
             }
         };
@@ -47,29 +50,31 @@ export default function Home() {
                     <h1 className={s.title}>Arthur Hui</h1>
                     <h2 className={s.subTitle}>Full Stask Developer</h2>
                     <h4 className={s.shortDescription}>I build accessible, inclusive products and digital experiences for the web.</h4>
-                    <div className={s.sectionList}>
-                        <a
-                            className={scrollSection === "about" ? s.scrolledSectionItem : s.sectionItem}
-                            href='#about'
-                        >
-                            <div className={s.line} />
-                            <div>ABOUT</div>
-                        </a>
-                        <a
-                            className={scrollSection === "experience" ? s.scrolledSectionItem : s.sectionItem}
-                            href='#experience'
-                        >
-                            <div className={s.line} />
-                            <div>EXPERIENCE</div>
-                        </a>
-                        <a
-                            className={scrollSection === "projects" ? s.scrolledSectionItem : s.sectionItem}
-                            href='#projects'
-                        >
-                            <div className={s.line} />
-                            <div>PROJECTS</div>
-                        </a>
-                    </div>
+                    {width > 1024 && (
+                        <div className={s.sectionList}>
+                            <a
+                                className={scrollSection === "about" ? s.scrolledSectionItem : s.sectionItem}
+                                href='#about'
+                            >
+                                <div className={s.line} />
+                                <div>ABOUT</div>
+                            </a>
+                            <a
+                                className={scrollSection === "experience" ? s.scrolledSectionItem : s.sectionItem}
+                                href='#experience'
+                            >
+                                <div className={s.line} />
+                                <div>EXPERIENCE</div>
+                            </a>
+                            <a
+                                className={scrollSection === "projects" ? s.scrolledSectionItem : s.sectionItem}
+                                href='#projects'
+                            >
+                                <div className={s.line} />
+                                <div>PROJECTS</div>
+                            </a>
+                        </div>
+                    )}
                 </div>
                 <div className={s.contentList}>
                     <a href='https://github.com/arthurHui' target='_blank' >
@@ -82,6 +87,9 @@ export default function Home() {
             </div>
             <div className={s.row}>
                 <section id='about' className={s.section}>
+                    {width <= 1024 && (
+                        <div className={s.sectionTitle}>About</div>
+                    )}
                     <div className={s.description}>
                         Hello and welcome to my portfolio website! I am Arthur, and I am a passionate.
                     </div>
@@ -93,10 +101,20 @@ export default function Home() {
                     </div>
                 </section>
                 <section id='experience' className={s.section}>
-                    <Experience />
+                    {width <= 1024 && (
+                        <div className={s.sectionTitle}>Experience</div>
+                    )}
+                    <Experience
+                        isEnabledHover={width > 1024}
+                    />
                 </section>
                 <section id='projects' className={s.section}>
-                    <Project />
+                    {width <= 1024 && (
+                        <div className={s.sectionTitle}>Projects</div>
+                    )}
+                    <Project
+                        isEnabledHover={width > 1024}
+                    />
                 </section>
                 <section className={s.section}>
                     <div className={`${s.description} ${s.projectDesign}`}>Coded in Visual Studio Code by yours truly. Built with Next.js and CSS, deployed with Vercel. All text is set in the Inter typeface.</div>

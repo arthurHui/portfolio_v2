@@ -2,7 +2,9 @@
 import React, { useState } from "react";
 import ExperienceCard from './ExperienceCard'
 
-const Experience = () => {
+const Experience = ({
+    isEnabledHover
+}) => {
 
     const [hoverIndex, setHoverIndex] = useState(-1)
 
@@ -15,6 +17,7 @@ const Experience = () => {
     }]
 
     const detectOnHover = (index) => {
+        if (!isEnabledHover) return
         setHoverIndex(index)
     }
 
@@ -33,6 +36,7 @@ const Experience = () => {
                         detectOnHover={(index) => detectOnHover(index)}
                         hoverIndex={hoverIndex}
                         href={value.href}
+                        isEnabledHover={isEnabledHover}
                     />
                 )
             })}

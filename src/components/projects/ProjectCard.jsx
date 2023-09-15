@@ -12,14 +12,17 @@ const ProjectCard = ({
     tags,
     detectOnHover,
     hoverIndex,
-    href
+    href,
+    isEnabledHover
 }) => {
 
     const isHoverFilter = useMemo(() => {
+        if (!isEnabledHover) return false
         return hoverIndex !== -1 && hoverIndex === index
     }, [index, hoverIndex])
 
     const isOtherFilter = useMemo(() => {
+        if (!isEnabledHover) return false
         return hoverIndex !== -1 && hoverIndex !== index
     }, [index, hoverIndex])
 
@@ -36,15 +39,17 @@ const ProjectCard = ({
             <div className={isHoverFilter ? s.hoverFilter : ''} />
             <div>
                 <div className={s.Container}>
-                    <Image
-                        src={image}
-                        alt={title}
-                        sizes="100vw"
-                        width={120}
-                        height={0}
-                        className={s.img}
-                    />
-                    <div>
+                    {isEnabledHover && (
+                        <Image
+                            src={image}
+                            alt={title}
+                            sizes="100vw"
+                            width={120}
+                            height={0}
+                            className={s.img}
+                        />
+                    )}
+                    <div style={{ width: isEnabledHover ? '80%' : '100%' }}>
                         <div
                             className={s.title}
                             style={{ color: isHoverFilter ? '#5EE4D4' : 'inherit' }}
@@ -60,6 +65,16 @@ const ProjectCard = ({
                             )
                         })}
                         <div className={s.description}>{description}</div>
+                        {!isEnabledHover && (
+                            <Image
+                                src={image}
+                                alt={title}
+                                sizes="100vw"
+                                width={200}
+                                height={0}
+                                className={s.img}
+                            />
+                        )}
                         <div className={s.tags}>
                             {tags.map((value) => {
                                 return (

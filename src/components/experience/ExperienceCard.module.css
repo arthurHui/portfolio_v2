@@ -53,11 +53,13 @@
     color: #94A3B8;
     margin-bottom: 1rem;
     font-size: 14px;
+    line-height: 1.5;
 }
 
 .Container .tags {
     display: flex;
     gap: 8px;
+    flex-wrap: wrap;
 }
 
 .root .leftTopArrow {
@@ -82,4 +84,10 @@
     font-size: 12px;
     font-weight: 500;
     line-height: 1.25rem;
+}
+
+@media (max-width: 1024px) {
+    .Container {
+        display: block;
+    }
 }
