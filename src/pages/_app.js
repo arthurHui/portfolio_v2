@@ -10,14 +10,14 @@ export default function MyApp({ Component, pageProps }) {
 
     return (
         <>
-            <title>Arthur Website</title>
-            <meta content="width=device-width, initial-scale=1" name="viewport" />
-            <meta name="description" content="Arthur Website" />
             <Head>
-                <link rel="shortcut icon" href="/favicon.ico" />
-                <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico" />
-                <link rel="icon" sizes="32x32" href="/favicon.ico" />
-                <link rel="icon" sizes="16x16" href="/favicon.ico" />
+                <title>Arthur Hui</title>
+                <meta content="width=device-width, initial-scale=1" name="viewport" />
+                <meta name="description" content="Arthur is a full stask developer. I am excited to showcase my projects and share my passion for web development through this portfolio website." />
+                <link rel="shortcut icon" href="/images/favicon.png" />
+                <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png" />
+                <link rel="icon" sizes="32x32" href="/images/favicon.png" />
+                <link rel="icon" sizes="16x16" href="/images/favicon.png" />
             </Head>
             <Component {...pageProps} />
         </>
