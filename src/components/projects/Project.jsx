@@ -13,7 +13,7 @@ const Project = ({
         title: "Build E-commerce Web Site",
         description: "I developed a comprehensive e-commerce website that encompasses all aspects of the online shopping experience. This includes a fully functional member system with exclusive discounts, and a secure credit card checkout process powered by Stripe. By integrating these features, I created a user-friendly platform that enables customers to browse, purchase.",
         tags: ['Nextjs', 'React', 'SCSS', 'Javascript', 'Python', 'Django'],
-        href: "https://www.hkwarmhome.com"
+        href: "https://arthurhui.github.io/ecommerce_website/"
     }]
 
     const detectOnHover = (index) => {
