@@ -2,14 +2,16 @@
     position: relative;
     margin-bottom: 3rem;
     transition: all .15s cubic-bezier(.4, 0, .2, 1);
-    opacity: 1
+    opacity: 1;
+    display: block;
 }
 
 .helfRoot {
     position: relative;
     margin-bottom: 3rem;
     transition: all .15s cubic-bezier(.4, 0, .2, 1);
-    opacity: 0.5
+    opacity: 0.5;
+    display: block;
 }
 
 .Container {
