@@ -29,16 +29,18 @@ const ProjectCard = ({
     return (
         <a
             className={isOtherFilter ? s.helfRoot : s.root}
-            onMouseEnter={() => detectOnHover(index)}
-            onFocus={() => detectOnHover(index)}
-            onMouseLeave={() => detectOnHover(-1)}
-            onBlur={() => detectOnHover(-1)}
             href={href}
             target="_blank"
         >
             <div className={isHoverFilter ? s.hoverFilter : ''} />
             <div>
-                <div className={s.Container}>
+                <div
+                    className={s.Container}
+                    onMouseEnter={() => detectOnHover(index)}
+                    onFocus={() => detectOnHover(index)}
+                    onMouseLeave={() => detectOnHover(-1)}
+                    onBlur={() => detectOnHover(-1)}
+                >
                     {isEnabledHover && (
                         <Image
                             src={image}

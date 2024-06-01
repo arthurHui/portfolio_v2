@@ -16,13 +16,6 @@ const Project = ({
         href: "https://arthurhui.github.io/ecommerce_website/"
     },
     {
-        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj8_4boBjMzRFpBc0JNSaFt-E2eWMtG5VfXw&usqp=CAU",
-        title: "Django Server",
-        description: "I developed a Django server using django restful framework. It provide a API for frontend to do CRUD in the database",
-        tags: ['Python', 'Django', 'MySQL'],
-        href: "https://arthurhui.github.io/ecommerce_website/"
-    },
-    {
         image: "https://diy-system.s3.us-west-1.amazonaws.com/low/4dafabb4-05c2-4a2f-b6c7-948f9c4e0c9a_1705325145843.1548.png",
         title: "Date Picker Package",
         description: "The date picker component you created is a user interface element designed to enable users to select a specific date from a calendar-like interface. It is built using the React framework, which allows for a modular and reusable design.",

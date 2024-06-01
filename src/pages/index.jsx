@@ -5,6 +5,7 @@ import Experience from "@/components/experience/Experience"
 import Project from '@/components/projects/Project'
 import { useEffect, useState } from 'react'
 import useWindowSize from "@/utilities/useWindowSize"
+import SubTitle from '@/components/SubTitle'
 
 export default function Home() {
 
@@ -48,7 +49,7 @@ export default function Home() {
             <div className={s.stickyRow} >
                 <div>
                     <h1 className={s.title}>Arthur Hui</h1>
-                    <h2 className={s.subTitle}>Full Stask Developer</h2>
+                    <SubTitle />
                     <h4 className={s.shortDescription}>I build accessible, inclusive products and digital experiences for the web.</h4>
                     {width > 1024 && (
                         <div className={s.sectionList}>
